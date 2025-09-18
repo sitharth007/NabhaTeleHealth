@@ -33,7 +33,7 @@ export function VideoCallModal({ visible, onClose, participantName, isDoctor = f
   }, [visible]);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: number;
     if (callStatus === 'connected') {
       interval = setInterval(() => {
         setCallDuration(prev => prev + 1);

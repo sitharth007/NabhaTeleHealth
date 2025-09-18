@@ -52,7 +52,7 @@ export default function StockScreen() {
         { text: 'Cancel', style: 'cancel' },
         { 
           text: 'Update', 
-          onPress: (newStock) => {
+          onPress: (newStock: string | undefined | null) => {
             const quantity = parseInt(newStock || '0');
             if (quantity >= 0) {
               updateStock(medicineId, quantity);
