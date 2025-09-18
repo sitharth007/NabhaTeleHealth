@@ -1,0 +1,173 @@
+import { User } from '@/types/user';
+import { Appointment, HealthRecord, PharmacyStock, Medicine } from '@/types/medical';
+
+export const mockDoctors: User[] = [
+  {
+    id: '1',
+    name: 'Dr. Preet Singh',
+    email: 'preet.singh@nabha.health',
+    phone: '+919876543210',
+    role: 'doctor',
+    isVerified: true,
+    createdAt: '2024-01-15T00:00:00Z',
+    doctorProfile: {
+      specialty: 'General Medicine',
+      licenseNumber: 'PMC12345',
+      experience: 8,
+      qualifications: ['MBBS', 'MD General Medicine'],
+      consultationFee: 300,
+      availability: [
+        { day: 'Monday', startTime: '09:00', endTime: '17:00' },
+        { day: 'Tuesday', startTime: '09:00', endTime: '17:00' },
+        { day: 'Wednesday', startTime: '09:00', endTime: '17:00' },
+        { day: 'Thursday', startTime: '09:00', endTime: '17:00' },
+        { day: 'Friday', startTime: '09:00', endTime: '17:00' },
+      ],
+      rating: 4.8,
+      isAvailable: true,
+    },
+  },
+  {
+    id: '2',
+    name: 'Dr. Simran Kaur',
+    email: 'simran.kaur@nabha.health',
+    phone: '+919876543211',
+    role: 'doctor',
+    isVerified: true,
+    createdAt: '2024-01-10T00:00:00Z',
+    doctorProfile: {
+      specialty: 'Pediatrics',
+      licenseNumber: 'PMC67890',
+      experience: 12,
+      qualifications: ['MBBS', 'MD Pediatrics'],
+      consultationFee: 400,
+      availability: [
+        { day: 'Monday', startTime: '10:00', endTime: '18:00' },
+        { day: 'Wednesday', startTime: '10:00', endTime: '18:00' },
+        { day: 'Friday', startTime: '10:00', endTime: '18:00' },
+      ],
+      rating: 4.9,
+      isAvailable: true,
+    },
+  },
+];
+
+export const mockAppointments: Appointment[] = [
+  {
+    id: '1',
+    patientId: '1',
+    doctorId: '1',
+    patientName: 'Amarjit Kaur',
+    doctorName: 'Dr. Preet Singh',
+    date: '2025-01-15',
+    time: '10:00',
+    type: 'video',
+    status: 'scheduled',
+    symptoms: 'Fever and headache for 2 days',
+    notes: 'Patient reports mild fever with headache. Needs general consultation.',
+  },
+  {
+    id: '2',
+    patientId: '1',
+    doctorId: '2',
+    patientName: 'Amarjit Kaur',
+    doctorName: 'Dr. Simran Kaur',
+    date: '2025-01-12',
+    time: '14:30',
+    type: 'video',
+    status: 'completed',
+    symptoms: 'Child vaccination consultation',
+    notes: 'Routine vaccination consultation completed successfully.',
+  },
+];
+
+export const mockHealthRecords: HealthRecord[] = [
+  {
+    id: '1',
+    patientId: '1',
+    doctorId: '1',
+    date: '2025-01-12',
+    type: 'consultation',
+    diagnosis: 'Viral Fever',
+    symptoms: ['Fever', 'Headache', 'Body ache'],
+    treatment: 'Rest, hydration, and medication as prescribed',
+    notes: 'Patient showed signs of viral infection. Prescribed symptomatic treatment.',
+  },
+  {
+    id: '2',
+    patientId: '1',
+    doctorId: '2',
+    date: '2025-01-10',
+    type: 'vaccination',
+    diagnosis: 'Routine Immunization',
+    symptoms: [],
+    treatment: 'COVID-19 booster vaccination administered',
+    notes: 'Vaccination completed without adverse reactions.',
+  },
+];
+
+export const mockMedicines: Medicine[] = [
+  {
+    id: '1',
+    name: 'Paracetamol 500mg',
+    dosage: '500mg',
+    frequency: 'Twice daily',
+    duration: '5 days',
+    instructions: 'Take after meals',
+    price: 25,
+  },
+  {
+    id: '2',
+    name: 'Crocin Advance',
+    dosage: '650mg',
+    frequency: 'As needed',
+    duration: '3 days',
+    instructions: 'For fever and pain relief',
+    price: 40,
+  },
+  {
+    id: '3',
+    name: 'Amoxicillin 250mg',
+    dosage: '250mg',
+    frequency: 'Three times daily',
+    duration: '7 days',
+    instructions: 'Complete the course',
+    price: 120,
+  },
+];
+
+export const mockPharmacyStock: PharmacyStock[] = [
+  {
+    id: '1',
+    pharmacyId: '1',
+    medicineId: '1',
+    medicineName: 'Paracetamol 500mg',
+    currentStock: 150,
+    minStock: 20,
+    price: 25,
+    expiryDate: '2025-12-31',
+    batchNumber: 'PAR001',
+  },
+  {
+    id: '2',
+    pharmacyId: '1',
+    medicineId: '2',
+    medicineName: 'Crocin Advance',
+    currentStock: 5,
+    minStock: 10,
+    price: 40,
+    expiryDate: '2025-10-15',
+    batchNumber: 'CRO001',
+  },
+  {
+    id: '3',
+    pharmacyId: '2',
+    medicineId: '3',
+    medicineName: 'Amoxicillin 250mg',
+    currentStock: 0,
+    minStock: 15,
+    price: 120,
+    expiryDate: '2025-08-20',
+    batchNumber: 'AMX001',
+  },
+];
